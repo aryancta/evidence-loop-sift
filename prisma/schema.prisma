@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Case {
+  id                    String   @id
+  name                  String
+  description           String
+  severity              String
+  tags                  String
+  artifactCount         Int      @default(0)
+  expectedContradiction String?
+  falseLeadHint         String?
+  summary               String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  artifacts Artifact[]
+  runs      InvestigationRun[]
+  reports   Report[]
+}
+
+model Artifact {
+  id         String   @id
+  caseId     String
+  type       String
+  name       String
+  sourcePath String
+  sizeBytes  Int      @default(0)
+  hash       String?
+  metadata   String?
+  createdAt  DateTime @default(now())
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model InvestigationRun {
+  id          String    @id
+  caseId      String
+  mode        String
+  state       String
+  currentStep String
+  progress    Int       @default(0)
+  startedAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  completedAt DateTime?
+  snapshot    String?
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model Report {
+  id                 String   @id
+  runId              String
+  caseId             String
+  executiveSummary   String
+  confirmedFindings  String
+  hypothesesJson     String
+  timelineJson       String
+  iocsJson           String
+  openQuestionsJson  String
+  citationsJson      String
+  signedHash         String
+  createdAt          DateTime @default(now())
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model AuditEvent {
+  id           String   @id
+  timestamp    DateTime @default(now())
+  type         String
+  runId        String?
+  caseId       String?
+  actor        String
+  summary      String
+  details      String?
+  evidenceRefs String?
+}
+
+model GuardrailRule {
+  id          String  @id
+  name        String
+  description String
+  category    String
+  enabled     Boolean @default(true)
+  config      String?
+}

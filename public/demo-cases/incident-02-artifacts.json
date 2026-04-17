@@ -1,0 +1,7 @@
+{
+  "artifacts": [
+    { "id": "a2-pstx", "type": "log", "name": "PowerShellTranscript.log" },
+    { "id": "a2-edr", "type": "timeline", "name": "edr.process_timeline.json" },
+    { "id": "a2-dns", "type": "network", "name": "dns_resolver.log" }
+  ]
+}

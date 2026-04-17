@@ -1,0 +1,9 @@
+{
+  "id": "incident-01",
+  "name": "Phantom Insider - Workstation WKS-4471",
+  "severity": "high",
+  "tags": ["false lead", "timeline-heavy", "log correlation"],
+  "artifactCount": 4,
+  "summary": "Off-hours file access lead-in; scheduled task contradiction.",
+  "falseLeadHint": "Initial SIEM alert blames developer jdoe; scheduled task evidence contradicts it."
+}
