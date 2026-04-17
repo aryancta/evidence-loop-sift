@@ -1,0 +1,8 @@
+{
+  "id": "incident-02",
+  "name": "Lateral Whisper - Finance Subnet",
+  "severity": "critical",
+  "tags": ["timeline-heavy", "log correlation"],
+  "artifactCount": 3,
+  "summary": "Cross-artifact correlation for PowerShell-driven lateral movement."
+}

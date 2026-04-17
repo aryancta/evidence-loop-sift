@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 189 94% 55%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 189 94% 55%;
+    --accent-foreground: 222 47% 8%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 189 94% 55%;
+
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground antialiased;
+    background:
+      radial-gradient(ellipse at top left, rgba(34, 211, 238, 0.08), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(56, 189, 248, 0.06), transparent 60%),
+      hsl(var(--background));
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+    color: #f0fdfa;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-xl border border-border/70 bg-card/70 backdrop-blur-sm;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(90deg, #67e8f9 0%, #22d3ee 60%, #0ea5b7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.22);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.4);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 220ms ease-out both;
+  }
+}

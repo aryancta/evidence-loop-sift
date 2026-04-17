@@ -1,0 +1,8 @@
+{
+  "artifacts": [
+    { "id": "a1-timeline", "type": "timeline", "name": "WKS-4471.mft.timeline.csv" },
+    { "id": "a1-winlog", "type": "log", "name": "Security.evtx.json" },
+    { "id": "a1-sched", "type": "registry", "name": "TaskScheduler.reg.json" },
+    { "id": "a1-netflow", "type": "network", "name": "wks4471.netflow.json" }
+  ]
+}

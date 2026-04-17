@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=file:./prisma/dev.db
+      - NEXT_TELEMETRY_DISABLED=1
+    volumes:
+      - sift_data:/app/prisma
+
+volumes:
+  sift_data:
