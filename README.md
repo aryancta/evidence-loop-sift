@@ -129,16 +129,6 @@ All endpoints return JSON except the SSE stream.
 
 ---
 
-## Screenshots
-
-Placeholder — drop screenshots in `public/screenshots/` and reference them here.
-
-- `docs/screenshots/dashboard.png`
-- `docs/screenshots/contradiction.png`
-- `docs/screenshots/report.png`
-
----
-
 ## Credits
 
 Built for a hackathon by **Aryan Choudhary** (<aryancta@gmail.com>). Guardrail and state-machine design inspired by MCP, LangGraph, and DFIR tradecraft that refuses to trust unsupported claims.
